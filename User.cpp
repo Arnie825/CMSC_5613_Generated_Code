@@ -1,36 +1,72 @@
-#include "..\..\AppData\Roaming\VisualParadigm\ws\teamwork_client\projects\Music_App_Project\User.h"
+#include <User.h>
+#include <iostream>
+#include <string>
+#include <list>
 
-Boolean User::login(int email, int password) {
-	// TODO - implement User::login
-	throw "Not yet implemented";
-}
+using namespace std;
 
-void User::updateUserPrederences() {
-	// TODO - implement User::updateUserPrederences
-	throw "Not yet implemented";
-}
+class Event {
+	public:
+		string name;
 
-List<Event> User::getrecommendations() {
-	// TODO - implement User::getrecommendations
-	throw "Not yet implemented";
-}
+		Event(string name){
+			this->name = name;
+		}
+	};
+	
+class User {
+public:
+	int user_id;
+	string userPerference;
+	string email;
+	string password;
+	string mood;
 
-void User::setMood(int String) {
-	// TODO - implement User::setMood
-	throw "Not yet implemented";
-}
+	//Some constructor
+	User(int user_id, string email, string password){
+		this->user_id = user_id;
+		this->email = email;
+		this->password = password;
+	}
 
-void User::getRecommendations() {
-	// TODO - implement User::getRecommendations
-	throw "Not yet implemented";
-}
+	//Pretend to login
+	bool login(int email, int password) {
+		return true;
+	}
 
-List<Event> User::searchEvents(int String) {
-	// TODO - implement User::searchEvents
-	throw "Not yet implemented";
-}
+	//Update some user perference variable
+	void updateUserPreferences(string userPerference) {
+		this->userPerference = userPerference;
+	}
 
-void User::applyFilter(String List) {
-	// TODO - implement User::applyFilter
-	throw "Not yet implemented";
-}
+	//return base recommendations
+	list<Event> getRecommendations() {
+		list<Event> events;
+		events.push_back(Event("Rock"));
+		events.push_back(Event("Tame Impala"));
+		return events;
+	}
+
+	//Set some mood
+	void setMood(string mood) {
+		this->mood = mood;
+	}
+
+	//Search for some event
+	list<Event> searchEvents(string event) {
+		list<Event> events;
+		if (event == "concert") {
+			events.push_back(Event("Rock"));
+		} else {
+			events.push_back(Event("Tame Impala"));
+		}
+		return events;
+	}
+
+	//apply some filter
+	void applyFilter(list<string> filters) {
+		for (auto& filter : filters) {
+			cout << "Applying filter: " << filter << endl;
+		}
+	}
+};
