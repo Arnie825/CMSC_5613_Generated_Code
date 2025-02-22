@@ -29,7 +29,9 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake ..
+          cmake -DCMAKE_MODULE_PATH=/usr/local/lib/cmake/googletest/cmake \
+              -DCMAKE_PREFIX_PATH=/usr/local \
+              ../
           make
           
       - name: Test
