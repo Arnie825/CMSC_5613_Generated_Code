@@ -1,3 +1,6 @@
+#ifndef USER_H
+#define USER_H
+
 #include <string>
 #include <list>
 #include <iostream>
@@ -30,3 +33,5 @@ public:
     list<Event> searchEvents(string query);
     void applyFilter(list<string> filters);
 };
+
+#endif
