@@ -21,7 +21,7 @@ jobs:
           cd googletest
           mkdir build
           cd build
-          cmake ..
+          cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
           sudo make install
           cd ../..
 
@@ -29,9 +29,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DCMAKE_MODULE_PATH=/usr/local/lib/cmake/googletest/cmake \
-              -DCMAKE_PREFIX_PATH=/usr/local \
-              ../
+          cmake -DCMAKE_PREFIX_PATH=/usr/local ..
           make
           
       - name: Test
