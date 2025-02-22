@@ -7,9 +7,10 @@ set(CMAKE_CXX_STANDARD 17)
 # Add source files
 add_executable(test UserTest.cpp User.cpp)
 
-# Google Test
+# Include both Test and GMock
 find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
+find_package(GMock REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS})
 
-# Link Google Test and pthread
-target_link_libraries(test ${GTEST_LIBRARIES} pthread)
+# Link Google Test, Google Mock, and pthread
+target_link_libraries(test ${GTEST_LIBRARIES} ${GMOCK_LIBRARIES})
