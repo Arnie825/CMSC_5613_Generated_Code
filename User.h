@@ -26,7 +26,7 @@ public:
     User(int id, string email, string password);
 
     // Methods
-    bool login(int email, int password);
+    bool login(string email, string password);
     void updateUserPreferences(string userPerference);
     list<Event> getRecommendations();
     void setMood(string mood);
