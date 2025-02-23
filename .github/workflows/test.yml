@@ -3,6 +3,17 @@ name: C++ Test Workflow
 on: [push]
 
 jobs:
+
+  Clean:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Remove old files
+        run: |
+          rm -rf build
+
   Tests:
     runs-on: ubuntu-latest
     steps:
