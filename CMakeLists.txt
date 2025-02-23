@@ -9,9 +9,7 @@ add_executable(test UserTest.cpp User.cpp)
 
 # Include both Test and GMock
 # Set the paths as well
-set(GMock_DIR /usr/local/lib/cmake/gmock)
 find_package(GTest REQUIRED)
-find_package(GMock REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS})
 
 # Link Google Test, Google Mock, and pthread
