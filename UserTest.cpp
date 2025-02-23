@@ -10,13 +10,13 @@ class MockUser : public User {
         MockUser(int id, string email, string password)
             : User(id, email, password) {}
     
-        MOCK_METHOD(list<Event>, searchEvents, (string query), (override));
+        MOCK_METHOD(list<Event>, searchEvents, (string query));
     };
 
 
 //Test to search events
 TEST(UserTest, SearchEventsWithMock) {
-    User user(1, "something@gmail.com", "333333");
+    MockUser mockUser(1, "something@gmail.com", "333333");
     list<Event> mockEvents;
     mockEvents.push_back(Event("Rock"));
     EXPECT_CALL(mockUser, searchEvents("Somethingt")).WillOnce(testing::Return(mockEvents));

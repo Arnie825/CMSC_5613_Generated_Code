@@ -30,7 +30,7 @@ public:
 	}
 
 	//Pretend to login
-	bool login(int email, int password) {
+	bool login(string email, string password) {
 		return true;
 	}
 

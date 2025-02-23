@@ -13,7 +13,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y g++ cmake libgtest-dev libgmock-dev
-          sudo apt-get install -y libgmock-dev
 
       - name: Install GoogleTest and GoogleMock
         run: |
