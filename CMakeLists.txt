@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Add source files
 add_executable(test UserTest.cpp User.cpp)
+add_library(gmock STATIC ${GMOCK_DIR}/src/gmock-all.cc)
 
 # Include both Test and GMock
 # Set the paths as well
