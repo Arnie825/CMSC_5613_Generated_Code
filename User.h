@@ -22,10 +22,8 @@ public:
     string password;
     string mood;
 
-    // Constructor
     User(int id, string email, string password);
 
-    // Methods
     bool login(string email, string password);
     void updateUserPreferences(string userPerference);
     list<Event> getRecommendations();
