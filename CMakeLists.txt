@@ -6,12 +6,12 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Add source files
 add_executable(test UserTest.cpp User.cpp)
-add_library(gmock STATIC ${GMOCK_DIR}/src/gmock-all.cc)
 
-# Include both Test and GMock
-# Set the paths as well
-find_package(GTest REQUIRED)
+# Add Google Test and Google Mock submodule to build them
+add_subdirectory(external/googletest)
+
+# Include Google Test and Google Mock directories
 include_directories(${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS})
 
-# Link Google Test, Google Mock, and pthread
-target_link_libraries(test ${GTEST_LIBRARIES} ${GMOCK_LIBRARIES})
+# Link Google Test and Google Mock libraries to your test
+target_link_libraries(test gmock gtest pthread)
